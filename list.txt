@@ -1,0 +1,5 @@
+devel/boost-all
+devel/boost-docs
+devel/boost-jam
+devel/boost-libs
+devel/boost-python-libs
