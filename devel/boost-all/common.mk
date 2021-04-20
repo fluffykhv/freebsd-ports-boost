@@ -2,6 +2,7 @@
 PORTVERSION=	1.76.0
 PORTVERSUFFIX=	${PORTVERSION:C/\.[0-9]+$//}
 DISTNAME=	boost_${PORTVERSION:S/./_/g}
+PATCHDIR=	../boost-libs/files
 
 CATEGORIES=	devel
 MAINTAINER=	office@FreeBSD.org
