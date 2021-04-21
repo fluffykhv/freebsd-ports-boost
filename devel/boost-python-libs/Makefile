@@ -2,6 +2,7 @@
 
 PORTNAME=	boost-libs
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+PATCHDIR=	../boost-libs/files
 
 COMMENT=	Framework for interfacing Python and C++
 
