@@ -5,6 +5,7 @@ devel/boost-libs
 devel/boost-python-libs
 
 audio/supercollider
+comms/uhd
 devel/leatherman
 devel/liblas
 devel/py-llvmlite
