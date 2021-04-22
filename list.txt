@@ -3,3 +3,7 @@ devel/boost-docs
 devel/boost-jam
 devel/boost-libs
 devel/boost-python-libs
+
+devel/leatherman
+devel/liblas
+devel/py-llvmlite
