@@ -10,4 +10,5 @@ devel/liblas
 devel/py-llvmlite
 devel/py-pynest2d
 graphics/appleseed
+mail/astroid
 net-p2p/eiskaltdcpp-lib
