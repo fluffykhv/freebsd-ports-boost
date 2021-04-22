@@ -8,3 +8,4 @@ audio/supercollider
 devel/leatherman
 devel/liblas
 devel/py-llvmlite
+devel/py-pynest2d
