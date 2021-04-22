@@ -10,6 +10,7 @@ devel/leatherman
 devel/liblas
 devel/py-llvmlite
 devel/py-pynest2d
+editors/pdfedit
 graphics/appleseed
 mail/astroid
 net-mgmt/icinga2
