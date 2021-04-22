@@ -11,4 +11,5 @@ devel/py-llvmlite
 devel/py-pynest2d
 graphics/appleseed
 mail/astroid
+net-mgmt/icinga2
 net-p2p/eiskaltdcpp-lib
