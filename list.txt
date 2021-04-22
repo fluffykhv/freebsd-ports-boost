@@ -4,6 +4,7 @@ devel/boost-jam
 devel/boost-libs
 devel/boost-python-libs
 
+audio/supercollider
 devel/leatherman
 devel/liblas
 devel/py-llvmlite
