@@ -9,3 +9,5 @@ devel/leatherman
 devel/liblas
 devel/py-llvmlite
 devel/py-pynest2d
+graphics/appleseed
+net-p2p/eiskaltdcpp-lib
