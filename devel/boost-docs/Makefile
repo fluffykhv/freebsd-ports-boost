@@ -11,6 +11,7 @@ LICENSE_FILE=	${WRKDIR}/${DISTNAME}/LICENSE_1_0.txt
 DOCSDIR=	${PREFIX}/share/doc/boost
 UNIQ=		/usr/bin/uniq
 
+NO_ARCH=	yes
 NO_BUILD=	yes
 
 OPTIONS_DEFINE=	DOCS
