@@ -1,4 +1,5 @@
 bin/rfnoc_image_builder
+bin/uhd_adc_self_cal
 bin/uhd_cal_rx_iq_balance
 bin/uhd_cal_tx_dc_offset
 bin/uhd_cal_tx_iq_balance
@@ -8,8 +9,11 @@ bin/uhd_image_loader
 bin/uhd_usrp_probe
 include/uhd.h
 include/uhd/build_info.hpp
+include/uhd/cal/cal_metadata_generated.h
 include/uhd/cal/container.hpp
 include/uhd/cal/database.hpp
+include/uhd/cal/dsa_cal.hpp
+include/uhd/cal/dsa_cal_generated.h
 include/uhd/cal/iq_cal.hpp
 include/uhd/cal/iq_cal_generated.h
 include/uhd/cal/pwr_cal.hpp
@@ -22,6 +26,7 @@ include/uhd/error.h
 include/uhd/exception.hpp
 include/uhd/features/discoverable_feature.hpp
 include/uhd/features/discoverable_feature_getter_iface.hpp
+include/uhd/features/ref_clk_calibration_iface.hpp
 include/uhd/property_tree.hpp
 include/uhd/property_tree.ipp
 include/uhd/rfnoc/actions.hpp
@@ -44,7 +49,9 @@ include/uhd/rfnoc/graph_edge.hpp
 include/uhd/rfnoc/keep_one_in_n_block_control.hpp
 include/uhd/rfnoc/logpwr_block_control.hpp
 include/uhd/rfnoc/mb_controller.hpp
+include/uhd/rfnoc/mock_block.hpp
 include/uhd/rfnoc/moving_average_block_control.hpp
+include/uhd/rfnoc/multichan_register_iface.hpp
 include/uhd/rfnoc/noc_block_base.hpp
 include/uhd/rfnoc/noc_block_make_args.hpp
 include/uhd/rfnoc/node.hpp
@@ -56,7 +63,10 @@ include/uhd/rfnoc/radio_control.hpp
 include/uhd/rfnoc/register_iface.hpp
 include/uhd/rfnoc/register_iface_holder.hpp
 include/uhd/rfnoc/registry.hpp
+include/uhd/rfnoc/replay_block_control.hpp
 include/uhd/rfnoc/res_source_info.hpp
+include/uhd/rfnoc/rf_control/core_iface.hpp
+include/uhd/rfnoc/rf_control/power_reference_iface.hpp
 include/uhd/rfnoc/rfnoc_types.hpp
 include/uhd/rfnoc/siggen_block_control.hpp
 include/uhd/rfnoc/split_stream_block_control.hpp
@@ -92,6 +102,7 @@ include/uhd/types/eeprom.hpp
 include/uhd/types/endianness.hpp
 include/uhd/types/filters.hpp
 include/uhd/types/mac_addr.hpp
+include/uhd/types/memmap_iface.hpp
 include/uhd/types/metadata.h
 include/uhd/types/metadata.hpp
 include/uhd/types/ranges.h
@@ -166,7 +177,7 @@ lib/cmake/uhd/UHDBoost.cmake
 lib/cmake/uhd/UHDConfig.cmake
 lib/cmake/uhd/UHDConfigVersion.cmake
 lib/libuhd.so
-lib/libuhd.so.4.0.0
+lib/libuhd.so.4.1.0
 libdata/pkgconfig/uhd.pc
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE
 %%PORTDOCS%%%%DOCSDIR%%/README.md
@@ -2063,6 +2074,8 @@ share/man/man1/uhd_usrp_probe.1.gz
 share/man/man1/usrp2_card_burner.1.gz
 share/man/man1/usrp_n2xx_simple_net_burner.1.gz
 share/man/man1/usrp_x3xx_fpga_burner.1.gz
+%%DATADIR%%/cal/cal_metadata.fbs
+%%DATADIR%%/cal/dsa_cal.fbs
 %%DATADIR%%/cal/iq_cal.fbs
 %%DATADIR%%/cal/pwr_cal.fbs
 %%DATADIR%%/examples/benchmark_rate
@@ -2124,12 +2137,14 @@ share/man/man1/usrp_x3xx_fpga_burner.1.gz
 %%DATADIR%%/rfnoc/core/rfnoc_imagebuilder_args.json
 %%DATADIR%%/rfnoc/core/x300_bsp.yml
 %%DATADIR%%/rfnoc/core/x310_bsp.yml
+%%DATADIR%%/rfnoc/core/x410_bsp.yml
 %%DATADIR%%/tests/actions_test
 %%DATADIR%%/tests/addr_test
 %%DATADIR%%/tests/addsub_block_test
 %%DATADIR%%/tests/block_id_test
 %%DATADIR%%/tests/buffer_test
 %%DATADIR%%/tests/byteswap_test
+%%DATADIR%%/tests/cal_data_dsa_test
 %%DATADIR%%/tests/cal_data_gain_pwr_test
 %%DATADIR%%/tests/cal_data_iq_test
 %%DATADIR%%/tests/cal_database_test
@@ -2148,10 +2163,13 @@ share/man/man1/usrp_x3xx_fpga_burner.1.gz
 %%DATADIR%%/tests/devtest/devtest_e3xx.py
 %%DATADIR%%/tests/devtest/devtest_n3x0.py
 %%DATADIR%%/tests/devtest/devtest_x3x0.py
+%%DATADIR%%/tests/devtest/devtest_x4x0.py
 %%DATADIR%%/tests/devtest/gpio_test.py
 %%DATADIR%%/tests/devtest/list_sensors_test.py
 %%DATADIR%%/tests/devtest/multi_usrp_test.py
 %%DATADIR%%/tests/devtest/python_api_test.py
+%%DATADIR%%/tests/devtest/python_rx_stability_test.py
+%%DATADIR%%/tests/devtest/recv_stability_test.py
 %%DATADIR%%/tests/devtest/run_testsuite.py
 %%DATADIR%%/tests/devtest/rx_samples_to_file_test.py
 %%DATADIR%%/tests/devtest/test_messages_test.py
@@ -2180,6 +2198,7 @@ share/man/man1/usrp_x3xx_fpga_burner.1.gz
 %%DATADIR%%/tests/isatty_test
 %%DATADIR%%/tests/keep_one_in_n_test
 %%DATADIR%%/tests/link_test
+%%DATADIR%%/tests/lmx2572_test
 %%DATADIR%%/tests/log_test
 %%DATADIR%%/tests/logpwr_block_test
 %%DATADIR%%/tests/math_test
@@ -2196,6 +2215,7 @@ share/man/man1/usrp_x3xx_fpga_burner.1.gz
 %%DATADIR%%/tests/ranges_c_test
 %%DATADIR%%/tests/ranges_test
 %%DATADIR%%/tests/replay_block_test
+%%DATADIR%%/tests/rf_control_gain_profile_test
 %%DATADIR%%/tests/rfnoc_chdr_test
 %%DATADIR%%/tests/rfnoc_detailgraph_test
 %%DATADIR%%/tests/rfnoc_node_test
@@ -2230,6 +2250,9 @@ share/man/man1/usrp_x3xx_fpga_burner.1.gz
 %%DATADIR%%/tests/vector_iir_block_test
 %%DATADIR%%/tests/vrt_test
 %%DATADIR%%/tests/window_block_test
+%%DATADIR%%/tests/x400_rfdc_control_test
+%%DATADIR%%/tests/x4xx_radio_block_test
+%%DATADIR%%/tests/zbx_cpld_test
 %%DATADIR%%/utils/b2xx_fx3_utils
 %%DATADIR%%/utils/convert_cal_data.py
 %%DATADIR%%/utils/converter_benchmark
