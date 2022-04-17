@@ -18,6 +18,8 @@ OPTIONS_DEFINE=	DOCS
 
 SHEBANG_GLOB=	*.py
 
+PORTDOCS=	*
+
 .include "${.CURDIR}/..//boost-all/common.mk"
 
 do-install:
