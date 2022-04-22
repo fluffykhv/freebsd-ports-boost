@@ -1,7 +1,7 @@
 # Created by: David Kalliecharan <dave@dal.ca>
 
 PORTNAME=	llvmlite
-DISTVERSION=	0.36.0
+DISTVERSION=	0.38.0
 CATEGORIES=	devel python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -15,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 RUN_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 
-USES=		compiler:c++11-lib python:3.6+ fortran
+USES=		compiler:c++11-lib python:3.7+ fortran
 USE_PYTHON=	distutils autoplist
 CXXFLAGS+=	-fPIC
 
