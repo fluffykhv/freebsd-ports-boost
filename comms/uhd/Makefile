@@ -44,7 +44,7 @@ CXXFLAGS_i386=	-msse2
 LDFLAGS+=	${LDFLAGS_${CHOSEN_COMPILER_TYPE}}
 LDFLAGS_gcc=	-latomic
 
-SHEBANG_GLOB=	*.py *.py.in
+SHEBANG_GLOB=	*.py *.py.in *_bist usrp_update*
 
 CMAKE_ARGS+=	-DPKG_LIB_DIR:STRING="share/uhd" -DUHD_TXRX_DEBUG_PRINTS="yes"
 # for excruciating debug use this -db
@@ -58,6 +58,8 @@ DOXYGEN_BUILD_DEPENDS=	doxygen:devel/doxygen
 DOXYGEN_CMAKE_ON=	-DENABLE_DOXYGEN:STRING="ON"
 DOXYGEN_CMAKE_OFF=	-DENABLE_DOXYGEN:STRING="OFF" \
 			-DENABLE_MANUAL:STRING="OFF"
+
+PORTDOCS=	*
 
 do-install:
 # install host component
