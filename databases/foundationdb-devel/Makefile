@@ -1,7 +1,9 @@
-PORTNAME=	foundationdb
+PORTNAME=	foundationdb-devel
 DISTVERSION=	7.0.0
 PORTREVISION=	1
 CATEGORIES=	databases
+
+# PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/pull/
 
 MAINTAINER=	dch@FreeBSD.org
 COMMENT=	Distributed, transactional key-value store
@@ -28,7 +30,7 @@ GH_PROJECT=	foundationdb
 USE_LDCONFIG=	yes
 USE_RC_SUBR=	foundationdb
 
-CONFLICTS_INSTALL=	foundationdb-devel
+CONFLICTS_INSTALL=	foundationdb
 
 SHEBANG_FILES=	bindings/c/generate_asm.py
 
@@ -67,6 +69,7 @@ do-install:
 	${STRIP_CMD} ${WRKDIR}/.build/lib/${l}
 	${INSTALL_DATA} ${WRKDIR}/.build/lib/${l} ${STAGEDIR}/${PREFIX}/lib/
 .endfor
+# exposed headers - confirm with upstream
 	${MKDIR} ${STAGEDIR}${PREFIX}/include/foundationdb
 	${INSTALL_DATA} ${WRKSRC}/bindings/c/foundationdb/fdb_c.h \
 	    ${STAGEDIR}/${PREFIX}/include/foundationdb/
