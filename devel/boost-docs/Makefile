@@ -6,7 +6,7 @@ COMMENT=	Documentation for libraries from boost.org
 USES=	python:env shebangfix
 
 LICENSE=	BSL
-LICENSE_FILE=	${WRKDIR}/${DISTNAME}/LICENSE_1_0.txt
+LICENSE_FILE=	${WRKSRC}/LICENSE_1_0.txt
 
 DOCSDIR=	${PREFIX}/share/doc/boost
 UNIQ=		/usr/bin/uniq

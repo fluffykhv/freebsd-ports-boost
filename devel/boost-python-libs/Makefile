@@ -6,7 +6,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 COMMENT=	Framework for interfacing Python and C++
 
 LICENSE=	BSL
-LICENSE_FILE=	${WRKDIR}/${DISTNAME}/LICENSE_1_0.txt
+LICENSE_FILE=	${WRKSRC}/LICENSE_1_0.txt
 
 PATCHDIR=	${.CURDIR}/../boost-libs/files
 
