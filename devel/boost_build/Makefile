@@ -1,7 +1,7 @@
 # Created by: Bruce M. Simpson
 
 PORTNAME=	boost_build
-DISTVERSION=	4.8.2.20220318
+DISTVERSION=	4.9.2
 CATEGORIES=	devel
 
 MAINTAINER=	fluffy@FreeBSD.org
@@ -17,7 +17,7 @@ USES=		compiler:c++11-lang python:test shebangfix tar:bzip2
 USE_GITHUB=	yes
 GH_ACCOUNT=	boostorg
 GH_PROJECT=	build
-GH_TAGNAME=	d4352f0
+GH_TAGNAME=	405d34a
 
 CONFLICTS_INSTALL=	b2
 
