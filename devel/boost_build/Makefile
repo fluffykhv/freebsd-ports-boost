@@ -1,9 +1,11 @@
-PORTNAME=	boost_build
-DISTVERSION=	4.9.2
+PORTNAME=	b2
+DISTVERSION=	4.9.3
 CATEGORIES=	devel
+PKGNAMEPREFIX=	boost-
 
 MAINTAINER=	fluffy@FreeBSD.org
 COMMENT=	Extensible cross-platform build tool suite
+WWW=		https://boostorg.github.io/build/index.html
 
 LICENSE=	BSL
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
@@ -15,7 +17,7 @@ USES=		compiler:c++11-lang python:test shebangfix tar:bzip2
 USE_GITHUB=	yes
 GH_ACCOUNT=	boostorg
 GH_PROJECT=	build
-GH_TAGNAME=	405d34a
+GH_TAGNAME=	0271faf
 
 CONFLICTS_INSTALL=	b2
 
@@ -23,8 +25,11 @@ SHEBANG_GLOB=	*.py
 
 SUB_FILES=	pkg-message
 
-do-build:
-	@cd ${WRKSRC} && CXXFLAGS="${CXXFLAGS}" CXX="${CXX}" ./bootstrap.sh
+MAKE_CMD=	./bootstrap.sh
+ALL_TARGET=	${CHOSEN_COMPILER_TYPE} ${WITH_DEBUG:D--debug}
+MAKE_FLAGS=	--cxx="${CXX}" --cxxflags="${CXXFLAGS:N-O*}"
+_MAKE_JOBS=	#
+MAKEFILE=	#
 
 do-install:
 	cd ${WRKSRC} && ./b2 toolset=${CHOSEN_COMPILER_TYPE} install --prefix=${STAGEDIR}${PREFIX}
