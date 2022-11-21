@@ -1,5 +1,7 @@
 PORTNAME=	boost-docs
+
 COMMENT=	Documentation for libraries from boost.org
+WWW=		https://www.boost.org/
 
 USES=	python:env shebangfix
 
