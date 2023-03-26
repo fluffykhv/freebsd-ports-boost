@@ -1,5 +1,5 @@
 PORTNAME=	build
-DISTVERSION=	4.9.3
+DISTVERSION=	4.9.4
 CATEGORIES=	devel
 PKGNAMEPREFIX=	boost-
 
@@ -17,7 +17,7 @@ USES=		compiler:c++11-lang python:test shebangfix tar:bzip2
 USE_GITHUB=	yes
 GH_ACCOUNT=	boostorg
 GH_PROJECT=	build
-GH_TAGNAME=	0271faf
+GH_TAGNAME=	9f488e0
 
 DATADIR=	${PREFIX}/share/b2
 
@@ -29,9 +29,10 @@ SUB_FILES=	pkg-message
 
 MAKE_CMD=	./bootstrap.sh
 ALL_TARGET=	${CHOSEN_COMPILER_TYPE} ${WITH_DEBUG:D--debug}
-MAKE_FLAGS=	--cxx="${CXX}" --cxxflags="${CXXFLAGS:N-O*}"
+MAKE_FLAGS=	--cxx="${CXX}" --cxxflags="${CXXFLAGS:N-O*}" BOOST_BUILD_PATH=${DATADIR}
 _MAKE_JOBS=	#
 MAKEFILE=	#
+INSTALL_ENV=	BOOST_BUILD_PATH=${DATADIR}
 
 do-install:
 	cd ${WRKSRC} && ./b2 toolset=${CHOSEN_COMPILER_TYPE} install --prefix=${STAGEDIR}${PREFIX}
