@@ -5,15 +5,9 @@ Subject: [PATCH] ssl_stream doesn't use BOOST_BEAST_ASYNC_TPARAM1 due to clang
  errors.
 
 Closes #2661
----
- boost/beast/ssl/ssl_stream.hpp | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git boost/beast/ssl/ssl_stream.hpp boost/beast/ssl/ssl_stream.hpp
-index 7c4183a525..452320b722 100644
---- boost/beast/ssl/ssl_stream.hpp
+--- boost/beast/ssl/ssl_stream.hpp.orig	2023-08-08 21:02:50 UTC
 +++ boost/beast/ssl/ssl_stream.hpp
-@@ -673,7 +673,7 @@ class ssl_stream
+@@ -673,7 +673,7 @@ class ssl_stream (public)
          ssl_stream<SyncStream>& stream,
          boost::system::error_code& ec);
  
@@ -22,7 +16,7 @@ index 7c4183a525..452320b722 100644
      friend
      void
      async_teardown(
-@@ -697,7 +697,7 @@ teardown(
+@@ -697,7 +697,7 @@ template<class AsyncStream,
  }
  
  template<class AsyncStream,
