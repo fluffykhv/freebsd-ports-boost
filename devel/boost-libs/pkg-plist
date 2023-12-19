@@ -4153,6 +4153,7 @@ include/boost/geometry/algorithms/detail/has_self_intersections.hpp
 include/boost/geometry/algorithms/detail/interior_iterator.hpp
 include/boost/geometry/algorithms/detail/intersection/areal_areal.hpp
 include/boost/geometry/algorithms/detail/intersection/box_box.hpp
+include/boost/geometry/algorithms/detail/intersection/box_box_implementation.hpp
 include/boost/geometry/algorithms/detail/intersection/gc.hpp
 include/boost/geometry/algorithms/detail/intersection/implementation.hpp
 include/boost/geometry/algorithms/detail/intersection/interface.hpp
@@ -4230,7 +4231,6 @@ include/boost/geometry/algorithms/detail/overlay/get_turns.hpp
 include/boost/geometry/algorithms/detail/overlay/handle_colocations.hpp
 include/boost/geometry/algorithms/detail/overlay/handle_self_turns.hpp
 include/boost/geometry/algorithms/detail/overlay/inconsistent_turns_exception.hpp
-include/boost/geometry/algorithms/detail/overlay/intersection_box_box.hpp
 include/boost/geometry/algorithms/detail/overlay/intersection_insert.hpp
 include/boost/geometry/algorithms/detail/overlay/is_self_turn.hpp
 include/boost/geometry/algorithms/detail/overlay/less_by_segment_ratio.hpp
