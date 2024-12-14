@@ -1908,6 +1908,7 @@ include/boost/compute/exception/context_error.hpp
 include/boost/compute/exception/no_device_found.hpp
 include/boost/compute/exception/opencl_error.hpp
 include/boost/compute/exception/program_build_failure.hpp
+include/boost/compute/exception/set_default_queue_error.hpp
 include/boost/compute/exception/unsupported_extension_error.hpp
 include/boost/compute/experimental/clamp_range.hpp
 include/boost/compute/experimental/malloc.hpp

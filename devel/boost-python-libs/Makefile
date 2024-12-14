@@ -16,6 +16,8 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs
 USES=		python:3.9-3.11  # upper bound inherited from math/py-numpy
 USE_PYTHON=	flavors
 
+#LDFLAGS+=	-Wl,--as-needed
+
 OPTIONS_DEFINE=	DEBUG OPTIMIZED_CFLAGS
 
 .include "${.CURDIR}/../boost-all/common.mk"
@@ -28,6 +30,9 @@ MAKE_ENV+=	PYTHON_ROOT="${LOCALBASE}"\
 		PYTHON_LIB_PATH="${PYTHON_LIBDIR}"
 
 MAKE_ARGS+=	--with-python
+MAKE_ARGS+=	--with-mpi
+#MAKE_ARGS+=	--without-container
+#MAKE_ARGS+=	--without-graph
 ALL_TARGET=	stage
 
 .include <bsd.port.pre.mk>
