@@ -15978,10 +15978,6 @@ lib/cmake/boost_math_tr1l-%%BOOST_SHARED_LIB_VER%%/libboost_math_tr1l-variant-sh
 lib/cmake/boost_math_tr1l-%%BOOST_SHARED_LIB_VER%%/libboost_math_tr1l-variant-static.cmake
 lib/cmake/boost_math-%%BOOST_SHARED_LIB_VER%%/boost_math-config-version.cmake
 lib/cmake/boost_math-%%BOOST_SHARED_LIB_VER%%/boost_math-config.cmake
-lib/cmake/boost_mpi-%%BOOST_SHARED_LIB_VER%%/boost_mpi-config-version.cmake
-lib/cmake/boost_mpi-%%BOOST_SHARED_LIB_VER%%/boost_mpi-config.cmake
-lib/cmake/boost_mpi_python-%%BOOST_SHARED_LIB_VER%%/boost_mpi_python-config-version.cmake
-lib/cmake/boost_mpi_python-%%BOOST_SHARED_LIB_VER%%/boost_mpi_python-config.cmake
 lib/cmake/boost_nowide-%%BOOST_SHARED_LIB_VER%%/boost_nowide-config-version.cmake
 lib/cmake/boost_nowide-%%BOOST_SHARED_LIB_VER%%/boost_nowide-config.cmake
 lib/cmake/boost_nowide-%%BOOST_SHARED_LIB_VER%%/libboost_nowide-variant-shared.cmake
