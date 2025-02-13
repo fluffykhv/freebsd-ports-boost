@@ -8,9 +8,9 @@ DISTINFO_FILE=	${.CURDIR}/../boost-all/distinfo
 CATEGORIES=	devel
 MAINTAINER=	office@FreeBSD.org
 
-MASTER_SITES=	https://boostorg.jfrog.io/artifactory/main/release/${PORTVERSION}/source/ \
-		https://boostorg.jfrog.io/artifactory/main/beta/${PORTVERSION:S/.b/.beta/g}/source/ \
-		SF/boost/boost/${PORTVERSION}
+MASTER_SITES=	https://archives.boost.io/release/${PORTVERSION}/source/ \
+		SF/boost/boost/${PORTVERSION} \
+		SF/boost/boost/${PORTVERSION:S/.b/.beta/g}
 
 USES+=		tar:bzip2
 
