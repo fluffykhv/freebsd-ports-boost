@@ -7,7 +7,6 @@ ALL_TARGET=	stage
 #USES+=		compiler:c++17-lang
 USE_CXXSTD=	gnu++17
 
-LIB_DEPENDS+=	libzstd.so:archivers/zstd
 LDFLAGS+=	-Wl,--as-needed
 
 PLIST_SUB+=	BOOST_MAJOR_VER=${BOOST_MAJOR_VER} \
@@ -43,11 +42,6 @@ OPTIMIZED_CFLAGS_MAKE_ARGS=	inlining=full
 # base gcc 4.2.1 fails when using precompiled headers on 11.0+ kernel.
 # https://lists.freebsd.org/pipermail/svn-src-all/2015-March/101722.html
 MAKE_ARGS+=	pch=off
-
-# zstd compression
-MAKE_ARGS+=	-sZSTD_PATH=${LOCALBASE}
-MAKE_ARGS+=	-sZSTD_LIBRARY_PATH=${LOCALBASE}/lib
-MAKE_ARGS+=	-sZSTD_INCLUDE=${LOCALBASE}/include
 
 .include <bsd.port.options.mk>
 

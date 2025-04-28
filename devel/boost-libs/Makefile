@@ -10,6 +10,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE_1_0.txt
 BROKEN_sparc64=	https://github.com/boostorg/context/commit/f2ef6326b6ed
 
 BUILD_DEPENDS+=	bjam:devel/boost-jam
+LIB_DEPENDS+=	libzstd.so:archivers/zstd
 
 # Note about LLVM_FROM_PORTS option:
 # Build of this port fails with assertion failure of compiler due to
@@ -55,6 +56,12 @@ MAKE_ARGS+=	--without-mpi
 MAKE_ARGS+=	${MAKE_ARGS_${CHOSEN_COMPILER_TYPE}}
 MAKE_ARGS_gcc=	xdll-path=${_GCC_RUNTIME}
 ALL_TARGET=	stage
+
+# zstd compression
+MAKE_ARGS+=	-sZSTD_PATH=${LOCALBASE}
+MAKE_ARGS+=	-sZSTD_LIBRARY_PATH=${LOCALBASE}/lib
+MAKE_ARGS+=	-sZSTD_INCLUDE=${LOCALBASE}/include
+
 
 .include <bsd.port.options.mk>
 
