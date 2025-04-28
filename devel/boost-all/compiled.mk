@@ -7,7 +7,7 @@ ALL_TARGET=	stage
 #USES+=		compiler:c++17-lang
 USE_CXXSTD=	gnu++17
 
-LIB_DEPENDS=	libzstd.so:archivers/zstd
+LIB_DEPENDS+=	libzstd.so:archivers/zstd
 LDFLAGS+=	-Wl,--as-needed
 
 PLIST_SUB+=	BOOST_MAJOR_VER=${BOOST_MAJOR_VER} \
