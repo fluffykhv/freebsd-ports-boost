@@ -4,12 +4,6 @@ Date: Wed, 11 Jun 2025 09:59:25 +0300
 Subject: [PATCH] Fix usage of missing variable (#98)
 
 Fixes https://github.com/boostorg/dll/issues/96
----
- include/boost/dll/detail/posix/program_location_impl.hpp | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git boost/dll/detail/posix/program_location_impl.hpp boost/dll/detail/posix/program_location_impl.hpp
-index 8bdb4cd0..88095a48 100644
 --- boost/dll/detail/posix/program_location_impl.hpp.orig	2025-04-03 11:37:24 UTC
 +++ boost/dll/detail/posix/program_location_impl.hpp
 @@ -70,9 +70,10 @@ namespace boost { namespace dll { namespace detail {
@@ -25,3 +19,12 @@ index 8bdb4cd0..88095a48 100644
  
          const auto errno_snapshot = static_cast<std::errc>(errno);
          if (errno_snapshot != std::errc::not_enough_memory) {
+@@ -83,7 +84,7 @@ namespace boost { namespace dll { namespace detail {
+ 
+         std::string p;
+         p.resize(size);
+-        if (sysctl(mib, 4, p.data(), &size, nullptr, 0) != 0) {
++        if (sysctl(mib, 4, &p[0], &size, nullptr, 0) != 0) {
+             ec = std::make_error_code(
+                 static_cast<std::errc>(errno)
+             );
