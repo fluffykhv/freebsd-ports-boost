@@ -759,6 +759,7 @@ include/boost/asio/impl/any_io_executor.ipp
 include/boost/asio/impl/append.hpp
 include/boost/asio/impl/as_tuple.hpp
 include/boost/asio/impl/awaitable.hpp
+include/boost/asio/impl/awaitable.ipp
 include/boost/asio/impl/buffered_read_stream.hpp
 include/boost/asio/impl/buffered_write_stream.hpp
 include/boost/asio/impl/cancel_after.hpp
@@ -7299,6 +7300,7 @@ include/boost/log/expressions/predicates/has_attr.hpp
 include/boost/log/expressions/predicates/is_debugger_present.hpp
 include/boost/log/expressions/predicates/is_in_range.hpp
 include/boost/log/expressions/predicates/matches.hpp
+include/boost/log/expressions/predicates/wrap_filter.hpp
 include/boost/log/expressions/record.hpp
 include/boost/log/keywords/auto_flush.hpp
 include/boost/log/keywords/auto_newline_mode.hpp
