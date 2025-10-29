@@ -16075,6 +16075,10 @@ lib/cmake/boost_stacktrace_addr2line-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_a
 lib/cmake/boost_stacktrace_addr2line-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_addr2line-config.cmake
 lib/cmake/boost_stacktrace_addr2line-%%BOOST_SHARED_LIB_VER%%/libboost_stacktrace_addr2line-variant-shared.cmake
 lib/cmake/boost_stacktrace_addr2line-%%BOOST_SHARED_LIB_VER%%/libboost_stacktrace_addr2line-variant-static.cmake
+%%SBT%%lib/cmake/boost_stacktrace_backtrace-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_backtrace-config-version.cmake
+%%SBT%%lib/cmake/boost_stacktrace_backtrace-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_backtrace-config.cmake
+%%SBT%%lib/cmake/boost_stacktrace_backtrace-%%BOOST_SHARED_LIB_VER%%/libboost_stacktrace_backtrace-variant-shared.cmake
+%%SBT%%lib/cmake/boost_stacktrace_backtrace-%%BOOST_SHARED_LIB_VER%%/libboost_stacktrace_backtrace-variant-static.cmake
 lib/cmake/boost_stacktrace_basic-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_basic-config-version.cmake
 lib/cmake/boost_stacktrace_basic-%%BOOST_SHARED_LIB_VER%%/boost_stacktrace_basic-config.cmake
 lib/cmake/boost_stacktrace_basic-%%BOOST_SHARED_LIB_VER%%/libboost_stacktrace_basic-variant-shared.cmake
@@ -16270,6 +16274,11 @@ lib/libboost_stacktrace_addr2line.so
 lib/libboost_stacktrace_addr2line.so.%%BOOST_MAJOR_VER%%
 lib/libboost_stacktrace_addr2line.so.%%BOOST_MAJOR_VER%%.%%BOOST_MINOR_VER%%
 lib/libboost_stacktrace_addr2line.so.%%BOOST_SHARED_LIB_VER%%
+%%SBT%%lib/libboost_stacktrace_backtrace.a
+%%SBT%%lib/libboost_stacktrace_backtrace.so
+%%SBT%%lib/libboost_stacktrace_backtrace.so.%%BOOST_MAJOR_VER%%
+%%SBT%%lib/libboost_stacktrace_backtrace.so.%%BOOST_MAJOR_VER%%.%%BOOST_MINOR_VER%%
+%%SBT%%lib/libboost_stacktrace_backtrace.so.%%BOOST_SHARED_LIB_VER%%
 lib/libboost_stacktrace_basic.a
 lib/libboost_stacktrace_basic.so
 lib/libboost_stacktrace_basic.so.%%BOOST_MAJOR_VER%%
