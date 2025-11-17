@@ -15,7 +15,7 @@ BUILD_DEPENDS=	bjam:devel/boost-jam \
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		${PY_BOOST}
 
-USES=		python:3.9-3.12  # upper bound inherited from math/py-numpy
+USES=		python:3.10-3.12  # upper bound inherited from math/py-numpy
 USE_PYTHON=	flavors
 
 #LDFLAGS+=	-Wl,--as-needed
