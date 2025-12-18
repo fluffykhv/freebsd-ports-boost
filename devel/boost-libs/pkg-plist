@@ -1766,6 +1766,7 @@ include/boost/cobalt/wait_group.hpp
 include/boost/cobalt/with.hpp
 include/boost/compat/bind_back.hpp
 include/boost/compat/bind_front.hpp
+include/boost/compat/detail/nontype.hpp
 include/boost/compat/detail/returns.hpp
 include/boost/compat/detail/throw_system_error.hpp
 include/boost/compat/function_ref.hpp
@@ -13034,6 +13035,7 @@ include/boost/smart_ptr/detail/sp_thread_yield.hpp
 include/boost/smart_ptr/detail/sp_type_traits.hpp
 include/boost/smart_ptr/detail/sp_typeinfo_.hpp
 include/boost/smart_ptr/detail/spinlock.hpp
+include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp
 include/boost/smart_ptr/detail/spinlock_pool.hpp
 include/boost/smart_ptr/detail/spinlock_std_atomic.hpp
 include/boost/smart_ptr/detail/yield_k.hpp
