@@ -10,11 +10,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE_1_0.txt
 PATCHDIR=	${.CURDIR:H}/boost-libs/files
 
 BUILD_DEPENDS=	bjam:devel/boost-jam \
-		${PYTHON_PKGNAMEPREFIX}numpy>=1.26:math/py-numpy@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}numpy1>=1.26:math/py-numpy@${PY_FLAVOR}
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libboost_container.so:devel/boost-libs
 
-USES=		python:3.10-3.12  # upper bound inherited from math/py-numpy
+USES=		pkgconfig python:3.10-3.14  # upper bound inherited from math/py-numpy
 USE_PYTHON=	flavors
 
 #LDFLAGS+=	-Wl,--as-needed
@@ -25,10 +25,13 @@ OPTIONS_DEFINE=	DEBUG OPTIMIZED_CFLAGS
 
 .include "${.CURDIR:H}/boost-all/compiled.mk"
 
+#NUMPY_INCLUDES=		${PYTHON_SITELIBDIR}/numpy/core/include/
+#NUMPY_LIBS=		${PYTHON_SITELIBDIR}/numpy/core/libs/
+
 MAKE_ENV+=	PYTHON_ROOT="${LOCALBASE}"\
 		PYTHON_VERSION="${PYTHON_VERSION}"\
-		PYTHON_INCLUDES="${PYTHON_INCLUDEDIR}"\
-		PYTHON_LIB_PATH="${PYTHON_LIBDIR}"
+		PYTHON_INCLUDES="${PYTHON_INCLUDEDIR} ${NUMPY_INCLUDES}"\
+		PYTHON_LIB_PATH="${PYTHON_LIBDIR} ${NUMPY_LIBS}"
 
 MAKE_ARGS+=	--with-python
 #MAKE_ARGS+=	--without-container
